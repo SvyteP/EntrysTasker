@@ -1,0 +1,105 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="1" author="Svyter">
+
+        <createTable tableName="users">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints  primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="role" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="tasksList" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="tasks">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="task_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subtasksList" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="bigint">
+            </column>
+            <column name="urgency" type="bigint">
+            </column>
+        </createTable>
+
+        <createTable tableName="subtasks">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="task_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="status" type="bigint">
+            </column>
+            <column name="urgency" type="bigint">
+            </column>
+        </createTable>
+
+        <createTable tableName="urgencyLevel">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="nameUrgency" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="statusLevel">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="nameStatus" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="roles">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="nameRole" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <sql>
+            INSERT INTO statusLevel (id, nameStatus) VALUES
+            (1, 'Создано'),
+            (2, 'В работе'),
+            (3, 'На проверке'),
+            (4, 'Завершено');
+
+            INSERT INTO urgencyLevel (id, nameUrgency) VALUES
+            (1, 'Тривиальный'),
+            (2, 'Низкий'),
+            (3, 'Средний'),
+            (4, 'Высокий'),
+            (5, 'Критический');
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>
