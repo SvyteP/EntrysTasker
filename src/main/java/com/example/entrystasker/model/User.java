@@ -1,6 +1,6 @@
-package model;
+package com.example.entrystasker.model;
 
-import entity.UserEntity;
+import com.example.entrystasker.entity.UserEntity;
 import lombok.Data;
 
 @Data

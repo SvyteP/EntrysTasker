@@ -1,16 +1,15 @@
-package model;
+package com.example.entrystasker.model;
 
-import entity.UserEntity;
 import lombok.Data;
 
 @Data
-public class tasks {
+public class Tasks {
     private String task_name;
     private String subtasksList;
     private int status;
     private int urgency;
-    public static tasks tomodel (tasks entity){
-        tasks model = new tasks();
+    public static Tasks tomodel (Tasks entity){
+        Tasks model = new Tasks();
         model.setStatus(entity.getStatus());
         model.setTask_name(entity.getTask_name());
         model.setSubtasksList(entity.getSubtasksList());
