@@ -6,12 +6,12 @@ import lombok.Data;
 @Data
 public class SubTasks {
     private String task_name;
-    private StatusLevel status;
-    private UrgencyLevel urgency;
+    private String status;
+    private String urgency;
     public static SubTasks tomodel (SubTasksEntity entity){
         SubTasks model = new SubTasks();
-        model.setStatus(StatusLevel.tomodel(entity.getStatus()));
-        model.setUrgency(UrgencyLevel.tomodel(entity.getUrgency()));
+        model.setStatus(entity.getStatus());
+        model.setUrgency(entity.getUrgency());
         model.setTask_name(entity.getTask_name());
         return model;
     }

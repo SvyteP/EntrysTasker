@@ -12,12 +12,10 @@ public class SubTasksEntity {
     private Long id;
 
     private String task_name;
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private StatusLevelEntity status;
-    @ManyToOne
-    @JoinColumn(name = "urgency_id")
-    private UrgencyLevelEntity urgency;
+
+    private String status;
+
+    private String urgency;
     @ManyToOne
     @JoinColumn(name = "task_id")
     private TaskEntity task;
