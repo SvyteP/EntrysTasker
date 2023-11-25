@@ -1,7 +1,7 @@
 package com.example.entrystasker.repository;
 
-import com.example.entrystasker.entity.SubtasksEntity;
+import com.example.entrystasker.entity.SubTasksEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface SubtaskRepo extends CrudRepository<SubtasksEntity,Long> {
+public interface SubtaskRepo extends CrudRepository<SubTasksEntity,Long> {
 }

@@ -7,7 +7,7 @@
     <changeSet id="1" author="Svyter">
 
         <createTable tableName="users">
-            <column name="id" type="INT" autoIncrement="true">
+            <column name="user_id" type="INT" autoIncrement="true">
                 <constraints  primaryKey="true" nullable="false" />
             </column>
             <column name="name" type="VARCHAR(255)">
@@ -29,7 +29,7 @@
         </createTable>
 
         <createTable tableName="tasks">
-            <column name="id" type="INT" autoIncrement="true">
+            <column name="task_id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="task_name" type="VARCHAR(255)">
@@ -45,7 +45,7 @@
         </createTable>
 
         <createTable tableName="subtasks">
-            <column name="id" type="INT" autoIncrement="true">
+            <column name="subtask_id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="task_name" type="VARCHAR(255)">
@@ -59,7 +59,7 @@
         </createTable>
 
         <createTable tableName="urgencyLevel">
-            <column name="id" type="INT">
+            <column name="urgency_id" type="INT">
                 <constraints primaryKey="true" />
             </column>
             <column name="nameUrgency" type="VARCHAR(255)">
@@ -68,7 +68,7 @@
         </createTable>
 
         <createTable tableName="statusLevel">
-            <column name="id" type="INT">
+            <column name="status_id" type="INT">
                 <constraints primaryKey="true" />
             </column>
             <column name="nameStatus" type="VARCHAR(255)">
@@ -77,7 +77,7 @@
         </createTable>
 
         <createTable tableName="roles">
-            <column name="id" type="INT">
+            <column name="role_id" type="INT">
                 <constraints primaryKey="true" />
             </column>
             <column name="nameRole" type="VARCHAR(255)">
@@ -86,13 +86,13 @@
         </createTable>
 
         <sql>
-            INSERT INTO statusLevel (id, nameStatus) VALUES
+            INSERT INTO statusLevel (status_id, nameStatus) VALUES
             (1, 'Создано'),
             (2, 'В работе'),
             (3, 'На проверке'),
             (4, 'Завершено');
 
-            INSERT INTO urgencyLevel (id, nameUrgency) VALUES
+            INSERT INTO urgencyLevel (urgency_id, nameUrgency) VALUES
             (1, 'Тривиальный'),
             (2, 'Низкий'),
             (3, 'Средний'),

@@ -2,20 +2,15 @@ package com.example.entrystasker.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.util.List;
-
 @Entity
 @Data
-@Table(name = "tasks")
-public class TaskEntity {
-
+@Table(name = "subtasks")
+public class SubTasksEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String taskName;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "task")
-    private List<SubTasksEntity> subtasksList;
+
+    private String task_name;
     @ManyToOne
     @JoinColumn(name = "status_id")
     private StatusLevelEntity status;
@@ -23,6 +18,6 @@ public class TaskEntity {
     @JoinColumn(name = "urgency_id")
     private UrgencyLevelEntity urgency;
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+    @JoinColumn(name = "task_id")
+    private TaskEntity task;
 }
