@@ -6,9 +6,10 @@ import com.example.entrystasker.repository.UserRepo;
 import com.example.entrystasker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/users")
 public class UserController {
     UserService userService;
@@ -30,27 +31,28 @@ public class UserController {
         }
     }
     @GetMapping("/get")
-    public ResponseEntity getUser(){
+    public ResponseEntity getUser(@RequestParam Long user_id){
         try {
-            return ResponseEntity.ok().body("User");
+            return ResponseEntity.ok().body(userService.getUser(user_id));
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Error createUser  | " +e.getMessage());
         }
     }
     @PutMapping("/editing")
-    public ResponseEntity editUser(){
+    public ResponseEntity editUser(@RequestBody UserEntity user,
+                                   @RequestParam Long user_id){
         try{
-            return ResponseEntity.ok().body("User Editing");
+            return ResponseEntity.ok().body(userService.editUser(user,user_id));
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Error editUser");
         }
     }
     @DeleteMapping("/del")
-    public ResponseEntity delUser(){
+    public ResponseEntity delUser(@RequestParam Long user_id){
         try{
-            return ResponseEntity.ok().body("User deleting");
+            return ResponseEntity.ok().body(userService.delUser(user_id));
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body("Error delUser");

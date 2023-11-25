@@ -23,7 +23,7 @@
             <column name="password" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="tasksList" type="bigint">
+            <column name="tasks_list" type="bigint">
                 <constraints nullable="true"/>
             </column>
         </createTable>
@@ -35,12 +35,15 @@
             <column name="task_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="subtasksList" type="VARCHAR(255)">
+            <column name="subtasks_list" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
                 <constraints nullable="false"/>
+
             </column>
-            <column name="status" type="bigint">
-            </column>
-            <column name="urgency" type="bigint">
+            <column name="urgency" type="VARCHAR(255)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
 
@@ -52,9 +55,9 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="status" type="bigint">
+            <column name="status" type="VARCHAR(255)">
             </column>
-            <column name="urgency" type="bigint">
+            <column name="urgency" type="VARCHAR(255)">
             </column>
         </createTable>
 
@@ -62,7 +65,7 @@
             <column name="urgency_id" type="INT">
                 <constraints primaryKey="true" />
             </column>
-            <column name="nameUrgency" type="VARCHAR(255)">
+            <column name="urgency_name" type="VARCHAR(255)">
                 <constraints nullable="false" />
             </column>
         </createTable>
@@ -71,7 +74,7 @@
             <column name="status_id" type="INT">
                 <constraints primaryKey="true" />
             </column>
-            <column name="nameStatus" type="VARCHAR(255)">
+            <column name="name_status" type="VARCHAR(255)">
                 <constraints nullable="false" />
             </column>
         </createTable>
@@ -80,19 +83,19 @@
             <column name="role_id" type="INT">
                 <constraints primaryKey="true" />
             </column>
-            <column name="nameRole" type="VARCHAR(255)">
+            <column name="name_role" type="VARCHAR(255)">
                 <constraints nullable="false" />
             </column>
         </createTable>
 
         <sql>
-            INSERT INTO statusLevel (status_id, nameStatus) VALUES
+            INSERT INTO statusLevel (status_id, name_status) VALUES
             (1, 'Создано'),
             (2, 'В работе'),
             (3, 'На проверке'),
             (4, 'Завершено');
 
-            INSERT INTO urgencyLevel (urgency_id, nameUrgency) VALUES
+            INSERT INTO urgencyLevel (urgency_id, urgency_name) VALUES
             (1, 'Тривиальный'),
             (2, 'Низкий'),
             (3, 'Средний'),

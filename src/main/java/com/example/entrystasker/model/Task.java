@@ -10,14 +10,14 @@ import java.util.stream.Collectors;
 public class Task {
     private String task_name;
     private List<SubTasks> subtasksList;
-    private StatusLevel status;
-    private UrgencyLevel urgency;
+    private String status;
+    private String urgency;
     public static Task tomodel (TaskEntity entity){
         Task model = new Task();
-        model.setStatus(StatusLevel.tomodel(entity.getStatus()));
+        model.setStatus(entity.getStatus());
         model.setTask_name(entity.getTaskName());
         model.setSubtasksList(entity.getSubtasksList().stream().map(SubTasks::tomodel).collect(Collectors.toList()));
-        model.setUrgency(UrgencyLevel.tomodel(entity.getUrgency()));
+        model.setUrgency(entity.getUrgency());
         return model;
     }
 }

@@ -18,7 +18,9 @@ public class User {
     public static User tomodel (UserEntity entity){
         User model = new User();
         model.setName(entity.getName());
-        model.setRole(Roles.tomodel(entity.getRole()));
+        if(entity.getRole()!=null) {
+            model.setRole(Roles.tomodel(entity.getRole()));
+        }
         model.setTasklist(entity.getTasklist().stream().map(Task::tomodel).collect(Collectors.toList()));
         return model;
     }

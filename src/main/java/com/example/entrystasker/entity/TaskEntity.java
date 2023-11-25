@@ -15,14 +15,15 @@ public class TaskEntity {
     @Column(name = "task_id")
     private Long id;
     private String taskName;
+
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "task")
     private List<SubTasksEntity> subtasksList;
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private StatusLevelEntity status;
-    @ManyToOne
-    @JoinColumn(name = "urgency_id")
-    private UrgencyLevelEntity urgency;
+
+    private String status;
+
+    private String urgency;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
