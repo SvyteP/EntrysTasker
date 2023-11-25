@@ -11,6 +11,7 @@ import java.util.List;
 public class RolesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "role_id")
     private Long id;
     private String nameRole;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "role")

@@ -12,6 +12,7 @@ public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "task_id")
     private Long id;
     private String taskName;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "task")

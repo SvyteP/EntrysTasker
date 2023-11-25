@@ -12,6 +12,7 @@ import java.util.List;
 public class UrgencyLevelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "urgency_id")
     private Long id;
     private String urgencyName;
 

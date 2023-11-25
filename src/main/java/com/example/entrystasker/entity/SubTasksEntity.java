@@ -8,6 +8,7 @@ import lombok.Data;
 public class SubTasksEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "subtask_id")
     private Long id;
 
     private String task_name;

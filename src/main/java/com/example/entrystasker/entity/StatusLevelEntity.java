@@ -8,6 +8,7 @@ import lombok.Data;
 public class StatusLevelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "status_id")
     private Long id;
     private String nameStatus;
 

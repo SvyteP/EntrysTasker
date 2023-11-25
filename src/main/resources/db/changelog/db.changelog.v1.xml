@@ -7,7 +7,7 @@
     <changeSet id="1" author="Svyter">
 
         <createTable tableName="users">
-            <column name="user_id" type="INT" autoIncrement="true">
+            <column name="user_id" type="bigint" autoIncrement="true">
                 <constraints  primaryKey="true" nullable="false" />
             </column>
             <column name="name" type="VARCHAR(255)">
@@ -18,7 +18,7 @@
             </column>
 
             <column name="role" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="password" type="VARCHAR(255)">
                 <constraints nullable="false"/>
